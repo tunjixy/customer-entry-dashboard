@@ -5,12 +5,12 @@
         @on-add="addUser"
         @on-view="viewUser($event)"
         @on-edit="editUser($event)"
-        @on-delete="deleteUserModal?.openModal()"
+        @on-delete="deleteUser($event)"
       />
 
       <ModifyUserModal ref="modifyUserModal" :is-editing="isEditing" :user="currentUser" />
       <ViewUserModal ref="viewUserModal" :user="currentUser" />
-      <DeleteUserModal ref="deleteUserModal" @proceed="deleteUser" />
+      <DeleteUserModal ref="deleteUserModal" @proceed="proceedToDelete" />
     </div>
   </div>
 </template>
@@ -59,10 +59,14 @@ function editUser(id: string) {
 // Delete user
 const deleteUserModal = ref<InstanceType<typeof DeleteUserModal> | null>(null)
 function deleteUser(id: string) {
-  const userIndex = users.value.findIndex((user) => user.id === id)
-  users.value = users.value.splice(userIndex, 1)
-  deleteUserModal.value?.closeModal()
+  currentUser.value = users.value.find((user) => user.id === id) as User
+  deleteUserModal.value?.openModal()
+}
+function proceedToDelete() {
+  const userIndex = users.value.findIndex((user) => user.id === currentUser.value?.id)
+  users.value.splice(userIndex, 1)
   localStorage.setItem('users', JSON.stringify(users.value))
   userStore.fetchUsers()
+  deleteUserModal.value?.closeModal()
 }
 </script>

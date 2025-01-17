@@ -5,7 +5,7 @@
         :to="menu.url"
         class="flex items-center justify-center gap-2 transition-colors hover:text-white"
       >
-        <component :is="markRaw(menu.icon)" class="size-5" />
+        <component :is="menu.icon" class="size-5" />
         <span>
           {{ menu.name }}
         </span>
@@ -15,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { markRaw } from 'vue'
 import type { Menu } from '@/types/misc'
 
 defineProps<{
