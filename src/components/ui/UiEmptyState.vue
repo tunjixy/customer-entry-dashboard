@@ -8,5 +8,5 @@
 </template>
 
 <script setup lang="ts">
-import Empty from '@/assets/icons/empty.svg?component'
+import Empty from '@/assets/icons/empty.svg'
 </script>

@@ -18,12 +18,12 @@
 
 <script setup lang="ts">
 import type { Menu } from '@/types/misc'
-import { ref, markRaw, useTemplateRef, onMounted, onUnmounted } from 'vue'
+import { ref, useTemplateRef, onMounted, onUnmounted } from 'vue'
 import UsersIcon from '@/assets/icons/user.svg'
 import NavHeader from '@/components/navigation/NavHeader.vue'
 import DashboardSidebar from '@/components/navigation/DashboardSidebar.vue'
 
-const menus = ref<Menu[]>([{ name: 'Users', url: '/', icon: markRaw(UsersIcon) }])
+const menus = ref<Menu[]>([{ name: 'Users', url: '/', icon: UsersIcon }])
 
 const div = useTemplateRef('dynamicDiv')
 
