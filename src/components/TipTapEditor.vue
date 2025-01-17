@@ -150,7 +150,7 @@ onMounted(() => {
   editor.value = new Editor({
     extensions: [
       Color.configure({ types: [TextStyle.name, ListItem.name] }),
-      TextStyle.configure({ types: [ListItem.name] }),
+      TextStyle.configure({}),
       StarterKit,
     ],
     content: modelValue.value,
