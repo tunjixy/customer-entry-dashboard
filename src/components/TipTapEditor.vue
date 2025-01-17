@@ -141,7 +141,7 @@ watch(modelValue, (value) => {
 
   const isSame = editor.value.getHTML() === value
   if (!isSame) {
-    editor.value.commands.setContent(value, false)
+    editor.value.commands.setContent(value as string, false)
   }
 })
 
