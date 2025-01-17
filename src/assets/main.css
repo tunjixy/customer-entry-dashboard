@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  html,
+  body {
+    @apply h-full scroll-smooth;
+  }
+  body {
+    @apply overflow-auto antialiased font-Outfit text-dark-text bg-background;
+  }
+}
+
+@layer components {
+  .form-input-field {
+    @apply w-full px-3 py-3 text-sm bg-transparent border rounded resize-none border-grey ring-offset-primary placeholder:text-grey/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:select-none disabled:opacity-50;
+  }
+  .form-input-select {
+    @apply block w-full px-3 py-3 text-sm leading-tight bg-transparent border rounded appearance-none cursor-pointer form-select border-grey focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-300;
+  }
+  .form-input-checkbox {
+    @apply rounded cursor-pointer form-checkbox size-4 border-grey bg-primary/5 text-primary focus:outline-none focus:ring-1 focus:ring-primary;
+  }
+  .pill {
+    @apply px-3 py-1 text-xs font-bold uppercase rounded-full;
+  }
+  .pill-success {
+    @apply text-green-500 bg-green-500/10;
+  }
+  .pill-danger {
+    @apply text-red-500 bg-red-500/10;
+  }
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Active route styling */
+.router-link-exact-active {
+  @apply py-3 rounded-lg bg-primary/10 text-primary;
+}
+.router-link-exact-active svg {
+  @apply text-primary;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s ease-in;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.modal-enter-active {
+  transition: all 0.1s ease;
+}
+.modal-leave-active {
+  transition: all 0.5s ease;
+}
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
+.move-modal-enter-from,
+.move-modal-leave-to {
+  transform: translateY(12px);
+  /* transform: scale(0.95); */
+  opacity: 0;
+}
+.move-modal-enter-active,
+.move-modal-leave-active {
+  transition: all ease 0.5s;
+}
