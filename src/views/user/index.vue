@@ -13,5 +13,5 @@ import UserListing from '@/components/user/UserListing.vue'
 // Reusable composable
 const app = useAppStore()
 
-app.setPageTitle('Users Overview')
+app.setPageTitle('Overview')
 </script>
