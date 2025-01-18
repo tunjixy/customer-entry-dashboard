@@ -7,7 +7,7 @@
       <div>
         <UiTextInput
           name="firstname"
-          label="Firstname"
+          label="First Name"
           type="text"
           v-model="fields.firstname.value"
           @input="validateField('firstname')"
@@ -18,7 +18,7 @@
       <div class="mt-5">
         <UiTextInput
           name="lastname"
-          label="Lastname"
+          label="Last Name"
           type="text"
           v-model="fields.lastname.value"
           @input="validateField('lastname')"
@@ -40,7 +40,7 @@
       <div class="mt-5">
         <UiTextInput
           name="phoneNumber"
-          label="Phone number"
+          label="Phone Number"
           type="tel"
           mode="tel"
           v-model="fields.phoneNumber.value"
