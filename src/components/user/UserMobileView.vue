@@ -18,8 +18,13 @@
     </div>
 
     <UiEmptyState v-else-if="filteredUsers?.length === 0">
-      No users available
-      <UiButton @click="$emit('onAdd')" rounded raised center class="mt-3"> Add User </UiButton>
+      <div v-if="search">
+        No search result for "<span class="font-bold text-primary">{{ search }} </span>"
+      </div>
+      <div v-else>
+        No users available
+        <UiButton @click="$emit('onAdd')" rounded raised center class="mt-3"> Add User </UiButton>
+      </div>
     </UiEmptyState>
 
     <ul v-else class="bg-white border rounded-lg border-grey divide-y-[1px] divide-grey">
@@ -68,5 +73,5 @@ defineEmits<{
 }>()
 
 // Reusable composable
-const { loading, filteredUsers } = useUser()
+const { search, loading, filteredUsers } = useUser()
 </script>
