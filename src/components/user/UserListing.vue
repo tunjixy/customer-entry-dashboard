@@ -11,7 +11,7 @@
       </UiButton>
     </div>
 
-    <div class="max-w-lg mx-auto mt-5 mb-10">
+    <div v-if="users.length" users.length class="max-w-lg mx-auto mt-5 mb-10">
       <UiSearch v-model="search" />
       <div v-if="search && filteredUsers.length" class="mt-3 text-center text-light-text">
         Showing search results for "<span class="font-bold text-primary">{{ search }} </span>"
