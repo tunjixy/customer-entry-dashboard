@@ -13,15 +13,12 @@
           aria-hidden="true"
         ></div>
 
-        <div
-          class="fixed inset-0 w-screen overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-grey"
-          @click="closeIfDismissible()"
-        >
-          <div class="flex items-end justify-center min-h-full text-center sm:items-center sm:p-0">
+        <div class="fixed inset-0 w-screen" @click="closeIfDismissible()">
+          <div class="flex items-end justify-center min-h-full text-center sm:items-center">
             <Transition name="move-modal">
               <div
                 v-if="showModal"
-                class="relative w-full overflow-hidden text-left transition-all transform rounded-b-none shadow-xl rounded-t-2xl sm:my-8 sm:max-w-lg sm:rounded-lg"
+                class="relative w-full overflow-hidden text-left transition-all transform rounded-b-none shadow-xl rounded-t-2xl sm:max-w-lg sm:rounded-lg max-h-[90vh] overflow-y-auto sm:my-8"
                 @click.stop
               >
                 <div class="p-8 bg-white sm:pb-4">

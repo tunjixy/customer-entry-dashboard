@@ -1,6 +1,6 @@
 <template>
   <UiModal ref="modal" :is-blocking="true" @close="closeModal">
-    <div class="flex flex-col items-center justify-center pt-10">
+    <div class="flex flex-col items-center justify-center">
       <InfoIcon class="text-blue-500 size-20" />
       <h2 class="mt-4 font-semibold text-center">Delete User</h2>
       <p class="mt-2 text-center text-light-text">
