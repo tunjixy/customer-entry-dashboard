@@ -20,10 +20,15 @@
       <TableBody v-else>
         <TableCell v-if="filteredUsers?.length === 0" :colspan="heading.length">
           <UiEmptyState>
-            No users available
-            <UiButton @click="$emit('onAdd')" rounded raised center class="mt-3">
-              Add User
-            </UiButton>
+            <div v-if="search">
+              No search result for "<span class="font-bold text-primary">{{ search }} </span>"
+            </div>
+            <div v-else>
+              No users available
+              <UiButton @click="$emit('onAdd')" rounded raised center class="mt-3">
+                Add User
+              </UiButton>
+            </div>
           </UiEmptyState>
         </TableCell>
         <TableRow
@@ -91,7 +96,7 @@ defineEmits<{
 }>()
 
 // Reusable composables
-const { loading, filteredUsers } = useUser()
+const { search, loading, filteredUsers } = useUser()
 
 const heading = ['', 'Name', 'Email', 'Phone Number', 'State', 'Status', 'Action']
 </script>

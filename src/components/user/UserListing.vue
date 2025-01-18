@@ -13,6 +13,9 @@
 
     <div class="max-w-lg mx-auto mt-5 mb-10">
       <UiSearch v-model="search" />
+      <div v-if="search && filteredUsers.length" class="mt-3 text-center text-light-text">
+        Showing search results for "<span class="font-bold text-primary">{{ search }} </span>"
+      </div>
     </div>
 
     <UserDesktopView
@@ -32,7 +35,7 @@
 
     <ModifyUserModal ref="modifyUserModal" :is-editing="isEditing" :user="currentUser" />
     <ViewUserModal ref="viewUserModal" :user="currentUser" />
-    <DeleteUserModal ref="deleteUserModal" @proceed="proceedToDelete" />
+    <DeleteUserModal ref="deleteUserModal" :user="currentUser" @proceed="proceedToDelete" />
   </div>
 </template>
 
@@ -57,7 +60,7 @@ import UiButton from '../ui/UiButton.vue'
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const { users } = storeToRefs(useUserStore())
 const userStore = useUserStore()
-const { search, fetchUsers } = useUser()
+const { search, fetchUsers, filteredUsers } = useUser()
 
 const isDesktop = breakpoints.greater('lg')
 const currentUser = ref<User | null>(null)
