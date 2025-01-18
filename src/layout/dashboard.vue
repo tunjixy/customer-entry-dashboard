@@ -3,7 +3,7 @@
     <DashboardSidebar :menus="menus" />
     <div class="relative lg:ml-[260px] px-0 lg:pl-5">
       <NavHeader />
-      <div ref="dynamicDiv" class="bg-white lg:rounded-tl-3xl shadow-custom">
+      <div ref="scrollArea" class="bg-white lg:rounded-tl-3xl shadow-custom">
         <div class="h-full overflow-y-auto">
           <router-view v-slot="{ Component }">
             <transition name="fade" mode="out-in">
@@ -27,21 +27,21 @@ const menus = ref<Menu[]>([
   { name: 'Users', url: '/', icon: markRaw(UsersIcon as unknown as object) },
 ])
 
-const div = useTemplateRef('dynamicDiv')
+const scrollArea = useTemplateRef('scrollArea')
 
-function setDivHeight() {
-  if (div.value) {
-    div.value.style.height = `${window.innerHeight - 65}px`
+function updateScrollArea() {
+  if (scrollArea.value) {
+    scrollArea.value.style.height = `${window.innerHeight - 65}px`
   }
 }
 
-window.addEventListener('resize', setDivHeight)
+window.addEventListener('resize', updateScrollArea)
 
 onMounted(() => {
-  setDivHeight()
+  updateScrollArea()
 })
 
 onUnmounted(() => {
-  window.removeEventListener('resize', setDivHeight)
+  window.removeEventListener('resize', updateScrollArea)
 })
 </script>
