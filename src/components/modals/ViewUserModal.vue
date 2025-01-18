@@ -10,7 +10,7 @@
         <p class="text-sm text-light-text">Last Name</p>
         <h6 class="font-bold">{{ user?.lastName }}</h6>
       </div>
-      <div>
+      <div class="col-span-2">
         <p class="text-sm text-light-text">Email</p>
         <h6 class="font-bold">{{ user?.email }}</h6>
       </div>
