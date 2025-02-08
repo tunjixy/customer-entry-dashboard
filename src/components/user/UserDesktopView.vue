@@ -1,24 +1,16 @@
 <template>
   <div class="mt-10">
-    <UiTable>
-      <TableHeader>
-        <TableRow>
-          <TableHead v-for="(title, index) in heading" :key="index">
-            {{ title }}
-          </TableHead>
-        </TableRow>
-      </TableHeader>
-
-      <TableBody v-if="loading">
+    <UiTable :headings="headings">
+      <template v-if="loading">
         <TableRow v-for="i in Array(5).keys()" :key="i">
-          <TableCell v-for="j in Array(heading.length).keys()" :key="j">
+          <TableCell v-for="j in Array(headings.length).keys()" :key="j">
             <UiSkeleton class="h-6" />
           </TableCell>
         </TableRow>
-      </TableBody>
+      </template>
 
-      <TableBody v-else>
-        <TableCell v-if="filteredUsers?.length === 0" :colspan="heading.length">
+      <template v-else>
+        <TableCell v-if="filteredUsers?.length === 0" :colspan="headings.length">
           <UiEmptyState>
             <div v-if="search">
               No search result for "<span class="font-bold text-primary">{{ search }} </span>"
@@ -31,6 +23,7 @@
             </div>
           </UiEmptyState>
         </TableCell>
+
         <TableRow
           v-for="(user, index) in filteredUsers"
           v-else
@@ -68,7 +61,7 @@
             </div>
           </TableCell>
         </TableRow>
-      </TableBody>
+      </template>
     </UiTable>
   </div>
 </template>
@@ -77,11 +70,8 @@
 import useUser from '@/composables/useUser'
 
 import UiTable from '../ui/table/UiTable.vue'
-import TableHeader from '../ui/table/TableHeader.vue'
-import TableBody from '../ui/table/TableBody.vue'
 import TableCell from '../ui/table/TableCell.vue'
 import TableRow from '../ui/table/TableRow.vue'
-import TableHead from '../ui/table/TableHead.vue'
 import UiSkeleton from '../ui/UiSkeleton.vue'
 import UiEmptyState from '../ui/UiEmptyState.vue'
 import UiButton from '../ui/UiButton.vue'
@@ -98,5 +88,5 @@ defineEmits<{
 // Reusable composables
 const { search, loading, filteredUsers } = useUser()
 
-const heading = ['', 'Name', 'Email', 'Phone Number', 'State', 'Status', 'Action']
+const headings = ['', 'Name', 'Email', 'Phone Number', 'State', 'Status', 'Action']
 </script>
