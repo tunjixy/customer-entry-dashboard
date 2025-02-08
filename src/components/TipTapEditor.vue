@@ -2,7 +2,8 @@
   <div v-if="editor">
     <div class="flex flex-wrap items-center gap-2 mb-5">
       <button
-        @click="editor.chain().focus().toggleBold().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleBold().run()"
         :disabled="!editor.can().chain().focus().toggleBold().run()"
         :class="[editor.isActive('bold') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
@@ -10,7 +11,8 @@
         Bold
       </button>
       <button
-        @click="editor.chain().focus().toggleItalic().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleItalic().run()"
         :disabled="!editor.can().chain().focus().toggleItalic().run()"
         :class="[editor.isActive('italic') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
@@ -18,7 +20,8 @@
         Italic
       </button>
       <button
-        @click="editor.chain().focus().toggleStrike().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleStrike().run()"
         :disabled="!editor.can().chain().focus().toggleStrike().run()"
         :class="[editor.isActive('strike') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
@@ -26,7 +29,8 @@
         Strike
       </button>
       <button
-        @click="editor.chain().focus().toggleCode().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleCode().run()"
         :disabled="!editor.can().chain().focus().toggleCode().run()"
         :class="[editor.isActive('code') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
@@ -34,84 +38,96 @@
         Code
       </button>
       <button
-        @click="editor.chain().focus().setParagraph().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().setParagraph().run()"
         :class="[editor.isActive('paragraph') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         Paragraph
       </button>
       <button
-        @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleHeading({ level: 1 }).run()"
         :class="[editor.isActive('heading', { level: 1 }) ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         H1
       </button>
       <button
-        @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleHeading({ level: 2 }).run()"
         :class="[editor.isActive('heading', { level: 2 }) ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         H2
       </button>
       <button
-        @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleHeading({ level: 3 }).run()"
         :class="[editor.isActive('heading', { level: 3 }) ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         H3
       </button>
       <button
-        @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleHeading({ level: 4 }).run()"
         :class="[editor.isActive('heading', { level: 4 }) ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         H4
       </button>
       <button
-        @click="editor.chain().focus().toggleHeading({ level: 5 }).run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleHeading({ level: 5 }).run()"
         :class="[editor.isActive('heading', { level: 5 }) ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         H5
       </button>
       <button
-        @click="editor.chain().focus().toggleHeading({ level: 6 }).run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleHeading({ level: 6 }).run()"
         :class="[editor.isActive('heading', { level: 6 }) ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         H6
       </button>
       <button
-        @click="editor.chain().focus().toggleBulletList().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleBulletList().run()"
         :class="[editor.isActive('bulletList') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         Bullet list
       </button>
       <button
-        @click="editor.chain().focus().toggleOrderedList().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleOrderedList().run()"
         :class="[editor.isActive('orderedList') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm rounded-lg"
       >
         Ordered list
       </button>
       <button
-        @click="editor.chain().focus().toggleCodeBlock().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().toggleCodeBlock().run()"
         :class="[editor.isActive('codeBlock') ? 'bg-primary text-white' : 'bg-grey']"
         class="px-2 py-1 text-sm prose rounded-lg"
       >
         Code block
       </button>
       <button
-        @click="editor.chain().focus().undo().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().undo().run()"
         :disabled="!editor.can().chain().focus().undo().run()"
         class="px-2 py-1 text-sm rounded-lg bg-grey"
       >
         Undo
       </button>
       <button
-        @click="editor.chain().focus().redo().run()"
+        type="button"
+        @click.prevent="editor.chain().focus().redo().run()"
         :disabled="!editor.can().chain().focus().redo().run()"
         class="px-2 py-1 text-sm rounded-lg bg-grey"
       >
